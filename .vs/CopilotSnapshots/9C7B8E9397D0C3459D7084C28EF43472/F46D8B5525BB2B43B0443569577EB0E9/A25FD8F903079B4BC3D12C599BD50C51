@@ -1,0 +1,82 @@
+﻿using ElTrueque.Api.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace ElTrueque.Api.Data;
+
+public class ElTruequeDbContext : DbContext
+{
+    public ElTruequeDbContext(DbContextOptions<ElTruequeDbContext> options) : base(options) { }
+
+    public DbSet<Departamento> Departamentos => Set<Departamento>();
+    public DbSet<Municipio> Municipios => Set<Municipio>();
+    public DbSet<Comunidad> Comunidades => Set<Comunidad>();
+    public DbSet<Idioma> Idiomas => Set<Idioma>();
+    public DbSet<Categoria> Categorias => Set<Categoria>();
+    public DbSet<UnidadMedida> UnidadesMedida => Set<UnidadMedida>();
+    public DbSet<Usuario> Usuarios => Set<Usuario>();
+    public DbSet<Producto> Productos => Set<Producto>();
+    public DbSet<ImagenProducto> ImagenesProducto => Set<ImagenProducto>();
+    public DbSet<Trueque> Trueques => Set<Trueque>();
+    public DbSet<Valoracion> Valoraciones => Set<Valoracion>();
+    public DbSet<Notificacion> Notificaciones => Set<Notificacion>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        // Evita ciclos de borrado en cascada entre Trueques y Usuarios/Productos
+        // (SQL Server no permite múltiples rutas de cascada hacia la misma tabla)
+        modelBuilder.Entity<Trueque>()
+            .HasOne(t => t.ProductoOfertado)
+            .WithMany()
+            .HasForeignKey(t => t.ProductoOfertadoID)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Trueque>()
+            .HasOne(t => t.ProductoSolicitado)
+            .WithMany()
+            .HasForeignKey(t => t.ProductoSolicitadoID)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Trueque>()
+            .HasOne(t => t.UsuarioSolicitante)
+            .WithMany()
+            .HasForeignKey(t => t.UsuarioSolicitanteID)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Trueque>()
+            .HasOne(t => t.UsuarioReceptor)
+            .WithMany()
+            .HasForeignKey(t => t.UsuarioReceptorID)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Valoracion>()
+            .HasOne(v => v.UsuarioEvaluador)
+            .WithMany()
+            .HasForeignKey(v => v.UsuarioEvaluadorID)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Valoracion>()
+            .HasOne(v => v.UsuarioEvaluado)
+            .WithMany()
+            .HasForeignKey(v => v.UsuarioEvaluadoID)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        modelBuilder.Entity<Usuario>()
+            .HasIndex(u => u.Telefono)
+            .IsUnique();
+
+        modelBuilder.Entity<Usuario>()
+            .HasIndex(u => u.Correo)
+            .IsUnique()
+            .HasFilter("[Correo] IS NOT NULL");
+
+        modelBuilder.Entity<Producto>()
+            .Property(p => p.Estado)
+            .HasDefaultValue("Disponible");
+
+        modelBuilder.Entity<Trueque>()
+            .Property(t => t.Estado)
+            .HasDefaultValue("Pendiente");
+    }
+}

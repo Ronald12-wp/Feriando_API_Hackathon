@@ -1,0 +1,58 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ElTrueque.Api.Models;
+
+public class Usuario
+{
+    [Key]
+    public int UsuarioID { get; set; }
+
+    [Required, MaxLength(100)]
+    public string Nombres { get; set; } = string.Empty;
+
+    [Required, MaxLength(100)]
+    public string Apellidos { get; set; } = string.Empty;
+
+    [Required, MaxLength(20)]
+    public string Telefono { get; set; } = string.Empty;
+
+    [MaxLength(150)]
+    public string? Correo { get; set; }
+
+    // Se guarda el hash (BCrypt) como bytes, igual que VARBINARY(256) en SQL Server
+    [Required]
+    public byte[] PasswordHash { get; set; } = Array.Empty<byte>();
+
+    [MaxLength(1)]
+    public string? Genero { get; set; } // F, M, O
+
+    public DateTime? FechaNacimiento { get; set; }
+
+    // --- CAMBIOS DE LOCALIZACIÓN ---
+    [Required]
+    public int MunicipioID { get; set; }
+
+    [ForeignKey(nameof(MunicipioID))]
+    public Municipio? Municipio { get; set; }
+
+    [Required, MaxLength(300)]
+    public string DireccionExacta { get; set; } = string.Empty;
+    // -------------------------------
+
+    public int? IdiomaPreferidoID { get; set; }
+
+    [ForeignKey(nameof(IdiomaPreferidoID))]
+    public Idioma? IdiomaPreferido { get; set; }
+
+    public bool EsProductora { get; set; } = true;
+
+    [MaxLength(300)]
+    public string? FotoPerfil { get; set; }
+
+    public DateTime FechaRegistro { get; set; } = DateTime.UtcNow;
+
+    public bool EstadoActivo { get; set; } = true;
+
+    public ICollection<Producto> Productos { get; set; } = new List<Producto>();
+}

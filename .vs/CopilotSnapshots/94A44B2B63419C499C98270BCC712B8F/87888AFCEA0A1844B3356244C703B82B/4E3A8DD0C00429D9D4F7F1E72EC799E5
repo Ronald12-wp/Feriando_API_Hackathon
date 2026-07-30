@@ -1,0 +1,110 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ElTrueque.Api.Models;
+
+public class Departamento
+{
+    [Key]
+    public int DepartamentoID { get; set; }
+
+    [Required, MaxLength(100)]
+    public string Nombre { get; set; } = string.Empty;
+
+    // Navegación hacia la nueva relación de Municipios
+    public ICollection<Municipio> Municipios { get; set; } = new List<Municipio>();
+}
+
+// --- NUEVA ENTIDAD MUNICIPIO ---
+public class Municipio
+{
+    [Key]
+    public int MunicipioID { get; set; }
+
+    [Required, MaxLength(100)]
+    public string Nombre { get; set; } = string.Empty;
+
+    [Required]
+    public int DepartamentoID { get; set; }
+
+    [ForeignKey(nameof(DepartamentoID))]
+    public Departamento? Departamento { get; set; }
+
+    // Navegación hacia los Usuarios en este municipio
+    public ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+
+    // Navegación hacia Comunidades en este municipio
+    public ICollection<Comunidad> Comunidades { get; set; } = new List<Comunidad>();
+}
+
+public class Idioma
+{
+    [Key]
+    public int IdiomaID { get; set; }
+
+    [Required, MaxLength(10)]
+    public string Codigo { get; set; } = string.Empty; // es, misk, sumu, gar
+
+    [Required, MaxLength(60)]
+    public string Nombre { get; set; } = string.Empty;
+}
+
+public class Categoria
+{
+    [Key]
+    public int CategoriaID { get; set; }
+
+    [Required, MaxLength(100)]
+    public string Nombre { get; set; } = string.Empty;
+
+    [MaxLength(300)]
+    public string? Descripcion { get; set; }
+
+    [MaxLength(200)]
+    public string? Icono { get; set; }
+
+    public ICollection<Producto> Productos { get; set; } = new List<Producto>();
+}
+
+public class UnidadMedida
+{
+    [Key]
+    public int UnidadMedidaID { get; set; }
+
+    [Required, MaxLength(30)]
+    public string Nombre { get; set; } = string.Empty; // libra, unidad, quintal, atado
+
+    [MaxLength(10)]
+    public string? Abreviatura { get; set; }
+}
+
+// Nueva entidad Comunidad requerida por Usuario.Comunidad y DbContext
+public class Comunidad
+{
+    [Key]
+    public int ComunidadID { get; set; }
+
+    [Required, MaxLength(150)]
+    public string Nombre { get; set; } = string.Empty;
+
+    // Asociación opcional con Municipio
+    public int? MunicipioID { get; set; }
+
+    [ForeignKey(nameof(MunicipioID))]
+    public Municipio? Municipio { get; set; }
+
+    // Asociación opcional con Departamento (algunas comunidades se consultan por departamento)
+    public int? DepartamentoID { get; set; }
+
+    [ForeignKey(nameof(DepartamentoID))]
+    public Departamento? Departamento { get; set; }
+
+    // Información adicional usada en los catálogos
+    [MaxLength(50)]
+    public string? TipoZona { get; set; }
+
+    [MaxLength(150)]
+    public string? PuebloOriginario { get; set; }
+
+    public ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
+}
