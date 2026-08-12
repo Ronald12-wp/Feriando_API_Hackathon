@@ -1,0 +1,16 @@
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\bin\Debug\net10.0\Feriando.DataAccess.deps.json
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\bin\Debug\net10.0\Feriando.DataAccess.dll
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\bin\Debug\net10.0\Feriando.DataAccess.pdb
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\bin\Debug\net10.0\Feriando.Core.dll
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\bin\Debug\net10.0\Feriando.Core.pdb
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\Feriando.DataAccess.csproj.AssemblyReference.cache
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\Feriando.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\Feriando.DataAccess.AssemblyInfoInputs.cache
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\Feriando.DataAccess.AssemblyInfo.cs
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\Feriando.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\Feriando.DataAccess.sourcelink.json
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\Feriando.0A7A6663.Up2Date
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\Feriando.DataAccess.dll
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\refint\Feriando.DataAccess.dll
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\Feriando.DataAccess.pdb
+C:\Users\laptop\Downloads\Fereando-API\Feriando.DataAccess\obj\Debug\net10.0\ref\Feriando.DataAccess.dll

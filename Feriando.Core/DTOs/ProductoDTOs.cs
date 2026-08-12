@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace ElTrueque.Api.DTOs;
 
@@ -19,12 +20,18 @@ public class ProductoCreateRequest
     [Required]
     public int UnidadMedidaID { get; set; }
 
+    public int? MunicipioID { get; set; }
+
+    public string? DireccionExacta { get; set; }
+
     [Required]
     public string TipoOferta { get; set; } = "Trueque"; // Trueque | Venta | Ambos
 
     public decimal? PrecioReferencial { get; set; }
 
     public List<string>? UrlsImagenes { get; set; }
+
+    public List<IFormFile>? ImagenesArchivos { get; set; }
 }
 
 public class ProductoUpdateRequest
@@ -32,9 +39,13 @@ public class ProductoUpdateRequest
     public string? Nombre { get; set; }
     public string? Descripcion { get; set; }
     public decimal? Cantidad { get; set; }
+    public int? MunicipioID { get; set; }
+    public string? DireccionExacta { get; set; }
     public string? TipoOferta { get; set; }
     public decimal? PrecioReferencial { get; set; }
     public string? Estado { get; set; } // Disponible | Reservado | Intercambiado | Inactivo
+    public bool ReemplazarImagenes { get; set; }
+    public List<IFormFile>? ImagenesArchivos { get; set; }
 }
 
 public class ProductoResponse

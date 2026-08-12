@@ -1,0 +1,12 @@
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\bin\Debug\net10.0\Feriando.Core.deps.json
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\bin\Debug\net10.0\Feriando.Core.dll
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\bin\Debug\net10.0\Feriando.Core.pdb
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\Feriando.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\Feriando.Core.AssemblyInfoInputs.cache
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\Feriando.Core.AssemblyInfo.cs
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\Feriando.Core.csproj.CoreCompileInputs.cache
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\Feriando.Core.sourcelink.json
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\Feriando.Core.dll
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\refint\Feriando.Core.dll
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\Feriando.Core.pdb
+C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\ref\Feriando.Core.dll
