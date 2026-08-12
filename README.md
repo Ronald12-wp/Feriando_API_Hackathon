@@ -17,6 +17,10 @@ El proyecto está dividido en 4 capas principales para garantizar modularidad y 
 
 ##  Requisitos
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5858326 (Fix conflicts and ensure README.md is in root)
 - **.NET 10 SDK** (o versión compatible)
 - **SQL Server** (Local, Express o Docker) con la base de datos `ElTruequeDB`
 - **Visual Studio 2026** o **VS Code** con C# Dev Kit
