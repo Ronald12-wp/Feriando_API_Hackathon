@@ -8,12 +8,14 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ---------- Base de datos (SQL Server ya creada con database_el_trueque.sql) ----------
+// ---------- Base de datos ----------
 builder.Services.AddDbContext<ElTruequeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // ---------- Servicios de negocio ----------
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<ITruequeService, TruequeService>();
 builder.Services.AddScoped<INotificacionService, NotificacionService>();
 
@@ -24,7 +26,7 @@ builder.Services.AddAuthentication(options =>
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-.AddJwtBearer(options =>
+.AddJwtBearer(options =>  
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -40,16 +42,18 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-// ---------- CORS: permite que la app Flutter (y un navegador de pruebas) consuman la API ----------
+// ---------- CORS ----------
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirApp", policy =>
     {
-        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
-// ---------- Controladores + Swagger (documentación interactiva de la API) ----------
+// ---------- Controladores + Swagger ----------
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -87,10 +91,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(); // disponible en /swagger
 }
 
-app.UseHttpsRedirection();
+app.UseStaticFiles(); // Servir archivos estáticos (fotos, etc.)
+
 app.UseCors("PermitirApp");
+
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();

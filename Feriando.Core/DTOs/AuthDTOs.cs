@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ElTrueque.Api.DTOs;
 
@@ -67,4 +69,44 @@ public class UsuarioResponse
     public bool EsProductora { get; set; }
     public string? FotoPerfil { get; set; }
     public double PromedioValoracion { get; set; }
+}
+
+/// <summary>
+/// DTO para actualizar datos del perfil del usuario
+/// </summary>
+public class ActualizarPerfilRequest
+{
+    [MaxLength(100)]
+    public string? Nombres { get; set; }
+
+    [MaxLength(100)]
+    public string? Apellidos { get; set; }
+
+    [MaxLength(20)]
+    public string? Telefono { get; set; }
+
+    [MaxLength(150), EmailAddress]
+    public string? Correo { get; set; }
+
+    [MaxLength(300)]
+    public string? DireccionExacta { get; set; }
+}
+
+/// <summary>
+/// DTO para actualizar la foto de perfil del usuario.
+/// </summary>
+public class ActualizarFotoPerfilRequest
+{
+    [FromForm(Name = "imagenes")]
+    public IFormFile Imagenes { get; set; } = null!;
+}
+
+/// <summary>
+/// DTO para respuesta de actualización de foto de perfil
+/// </summary>
+public class FotoPerfilResponse
+{
+    public int UsuarioID { get; set; }
+    public string FotoPerfil { get; set; } = string.Empty;
+    public string Mensaje { get; set; } = "Foto actualizada exitosamente";
 }
