@@ -35,6 +35,14 @@ public class Producto
     [ForeignKey(nameof(UnidadMedidaID))]
     public UnidadMedida? UnidadMedida { get; set; }
 
+    public int? MunicipioID { get; set; }
+
+    [ForeignKey(nameof(MunicipioID))]
+    public Municipio? Municipio { get; set; }
+
+    [MaxLength(300)]
+    public string? DireccionExacta { get; set; }
+
     [Required, MaxLength(20)]
     public string TipoOferta { get; set; } = "Trueque"; // Trueque | Venta | Ambos
 

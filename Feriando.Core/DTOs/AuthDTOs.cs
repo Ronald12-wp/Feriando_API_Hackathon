@@ -59,11 +59,14 @@ public class UsuarioResponse
     public string Apellidos { get; set; } = string.Empty;
     public string Telefono { get; set; } = string.Empty;
     public string? Correo { get; set; }
+    public string? Genero { get; set; }
 
     // --- CAMBIOS DE LOCALIZACIÓN ---
+    public int? MunicipioID { get; set; }
     public string? Municipio { get; set; }
     public string? Departamento { get; set; }
     public string DireccionExacta { get; set; } = string.Empty;
+    public int? IdiomaPreferidoID { get; set; }
     // -------------------------------
 
     public bool EsProductora { get; set; }
@@ -88,8 +91,17 @@ public class ActualizarPerfilRequest
     [MaxLength(150), EmailAddress]
     public string? Correo { get; set; }
 
+    [MaxLength(1)]
+    public string? Genero { get; set; }
+
+    public int? MunicipioID { get; set; }
+
     [MaxLength(300)]
     public string? DireccionExacta { get; set; }
+
+    public int? IdiomaPreferidoID { get; set; }
+
+    public bool? EsProductora { get; set; }
 }
 
 /// <summary>

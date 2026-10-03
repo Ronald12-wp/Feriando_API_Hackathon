@@ -32,6 +32,7 @@ public class ProductoService : IProductoService
     {
         var query = _db.Productos
             .Include(p => p.Usuario).ThenInclude(u => u!.Municipio).ThenInclude(m => m!.Departamento)
+            .Include(p => p.Municipio).ThenInclude(m => m!.Departamento)
             .Include(p => p.Categoria)
             .Include(p => p.UnidadMedida)
             .Include(p => p.Imagenes)
@@ -44,10 +45,13 @@ public class ProductoService : IProductoService
             query = query.Where(p => p.CategoriaID == filtro.CategoriaID.Value);
 
         if (filtro.MunicipioID.HasValue)
-            query = query.Where(p => p.Usuario!.MunicipioID == filtro.MunicipioID.Value);
+            query = query.Where(p => (p.MunicipioID ?? p.Usuario!.MunicipioID) == filtro.MunicipioID.Value);
 
         if (filtro.DepartamentoID.HasValue)
-            query = query.Where(p => p.Usuario!.Municipio!.DepartamentoID == filtro.DepartamentoID.Value);
+            query = query.Where(p =>
+                (p.MunicipioID.HasValue
+                    ? p.Municipio!.DepartamentoID
+                    : p.Usuario!.Municipio!.DepartamentoID) == filtro.DepartamentoID.Value);
 
         if (!string.IsNullOrWhiteSpace(filtro.TipoOferta))
             query = query.Where(p => p.TipoOferta == filtro.TipoOferta || p.TipoOferta == "Ambos");
@@ -68,6 +72,7 @@ public class ProductoService : IProductoService
     {
         var producto = await _db.Productos
             .Include(p => p.Usuario).ThenInclude(u => u!.Municipio).ThenInclude(m => m!.Departamento)
+            .Include(p => p.Municipio).ThenInclude(m => m!.Departamento)
             .Include(p => p.Categoria)
             .Include(p => p.UnidadMedida)
             .Include(p => p.Imagenes)
@@ -78,6 +83,19 @@ public class ProductoService : IProductoService
 
     public async Task<ProductoResponse> CrearAsync(int usuarioID, ProductoCreateRequest request)
     {
+        var municipioID = request.MunicipioID;
+        var direccionExacta = request.DireccionExacta;
+        if (!municipioID.HasValue || string.IsNullOrWhiteSpace(direccionExacta))
+        {
+            var usuario = await _db.Usuarios
+                .Where(u => u.UsuarioID == usuarioID)
+                .Select(u => new { u.MunicipioID, u.DireccionExacta })
+                .FirstAsync();
+            municipioID ??= usuario.MunicipioID;
+            if (string.IsNullOrWhiteSpace(direccionExacta))
+                direccionExacta = usuario.DireccionExacta;
+        }
+
         var producto = new Producto
         {
             UsuarioID = usuarioID,
@@ -86,6 +104,8 @@ public class ProductoService : IProductoService
             Descripcion = request.Descripcion,
             Cantidad = request.Cantidad,
             UnidadMedidaID = request.UnidadMedidaID,
+            MunicipioID = municipioID,
+            DireccionExacta = direccionExacta,
             TipoOferta = request.TipoOferta,
             PrecioReferencial = request.PrecioReferencial,
             Estado = "Disponible",
@@ -107,6 +127,7 @@ public class ProductoService : IProductoService
 
         var creado = await _db.Productos
             .Include(p => p.Usuario).ThenInclude(u => u!.Municipio).ThenInclude(m => m!.Departamento)
+            .Include(p => p.Municipio).ThenInclude(m => m!.Departamento)
             .Include(p => p.Categoria)
             .Include(p => p.UnidadMedida)
             .Include(p => p.Imagenes)
@@ -126,6 +147,18 @@ public class ProductoService : IProductoService
 
         if (producto.UsuarioID != usuarioID)
             return false;
+
+        if (request.CategoriaID.HasValue)
+            producto.CategoriaID = request.CategoriaID.Value;
+
+        if (request.UnidadMedidaID.HasValue)
+            producto.UnidadMedidaID = request.UnidadMedidaID.Value;
+
+        if (request.MunicipioID.HasValue)
+            producto.MunicipioID = request.MunicipioID.Value;
+
+        if (request.DireccionExacta is not null)
+            producto.DireccionExacta = request.DireccionExacta;
 
         producto.Nombre = request.Nombre ?? producto.Nombre;
         producto.Descripcion = request.Descripcion ?? producto.Descripcion;
@@ -162,6 +195,7 @@ public class ProductoService : IProductoService
     {
         return await _db.Productos
             .Include(p => p.Usuario).ThenInclude(u => u!.Municipio).ThenInclude(m => m!.Departamento)
+            .Include(p => p.Municipio).ThenInclude(m => m!.Departamento)
             .Include(p => p.Categoria)
             .Include(p => p.UnidadMedida)
             .Include(p => p.Imagenes)
@@ -246,8 +280,11 @@ public class ProductoService : IProductoService
         Imagenes = p.Imagenes.OrderBy(i => i.Orden).Select(i => i.UrlImagen).ToList(),
         UsuarioID = p.UsuarioID,
         NombreProductora = p.Usuario is null ? string.Empty : $"{p.Usuario.Nombres} {p.Usuario.Apellidos}",
-        Municipio = p.Usuario?.Municipio?.Nombre ?? string.Empty,
-        Departamento = p.Usuario?.Municipio?.Departamento?.Nombre ?? string.Empty
+        MunicipioID = p.MunicipioID ?? p.Usuario?.MunicipioID,
+        DireccionExacta = p.DireccionExacta ?? p.Usuario?.DireccionExacta,
+        Municipio = p.Municipio?.Nombre ?? p.Usuario?.Municipio?.Nombre ?? string.Empty,
+        Departamento = p.Municipio?.Departamento?.Nombre
+            ?? p.Usuario?.Municipio?.Departamento?.Nombre
+            ?? string.Empty
     };
 }
-

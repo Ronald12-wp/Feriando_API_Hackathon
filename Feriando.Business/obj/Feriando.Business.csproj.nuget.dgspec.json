@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Business\\Feriando.Business.csproj": {}
+    "D:\\Feriando_API_Hackathon\\Feriando.Business\\Feriando.Business.csproj": {}
   },
   "projects": {
-    "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Business\\Feriando.Business.csproj": {
+    "D:\\Feriando_API_Hackathon\\Feriando.Business\\Feriando.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Business\\Feriando.Business.csproj",
+        "projectUniqueName": "D:\\Feriando_API_Hackathon\\Feriando.Business\\Feriando.Business.csproj",
         "projectName": "Feriando.Business",
-        "projectPath": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Business\\Feriando.Business.csproj",
+        "projectPath": "D:\\Feriando_API_Hackathon\\Feriando.Business\\Feriando.Business.csproj",
         "packagesPath": "C:\\Users\\laptop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Business\\obj\\",
+        "outputPath": "D:\\Feriando_API_Hackathon\\Feriando.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,18 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Core\\Feriando.Core.csproj": {
-                "projectPath": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Core\\Feriando.Core.csproj"
+              "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj": {
+                "projectPath": "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj"
               },
-              "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.DataAccess\\Feriando.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.DataAccess\\Feriando.DataAccess.csproj"
+              "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Feriando.DataAccess.csproj": {
+                "projectPath": "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Feriando.DataAccess.csproj"
               }
             }
           }
@@ -52,10 +52,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "BCrypt.Net-Next": {
@@ -82,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -500,14 +501,14 @@
         }
       }
     },
-    "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Core\\Feriando.Core.csproj": {
+    "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Core\\Feriando.Core.csproj",
+        "projectUniqueName": "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj",
         "projectName": "Feriando.Core",
-        "projectPath": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Core\\Feriando.Core.csproj",
+        "projectPath": "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj",
         "packagesPath": "C:\\Users\\laptop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Core\\obj\\",
+        "outputPath": "D:\\Feriando_API_Hackathon\\Feriando.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -522,11 +523,11 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -541,10 +542,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "imports": [
             "net461",
@@ -565,7 +567,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -983,14 +985,14 @@
         }
       }
     },
-    "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.DataAccess\\Feriando.DataAccess.csproj": {
+    "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Feriando.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.DataAccess\\Feriando.DataAccess.csproj",
+        "projectUniqueName": "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Feriando.DataAccess.csproj",
         "projectName": "Feriando.DataAccess",
-        "projectPath": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.DataAccess\\Feriando.DataAccess.csproj",
+        "projectPath": "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Feriando.DataAccess.csproj",
         "packagesPath": "C:\\Users\\laptop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.DataAccess\\obj\\",
+        "outputPath": "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1005,15 +1007,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Core\\Feriando.Core.csproj": {
-                "projectPath": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Core\\Feriando.Core.csproj"
+              "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj": {
+                "projectPath": "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj"
               }
             }
           }
@@ -1028,10 +1030,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
@@ -1059,7 +1062,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

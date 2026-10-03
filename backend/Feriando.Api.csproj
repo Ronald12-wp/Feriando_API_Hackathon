@@ -29,4 +29,8 @@
     <ProjectReference Include="..\Feriando.Business\Feriando.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\productos\1\" />
+  </ItemGroup>
+
 </Project>
