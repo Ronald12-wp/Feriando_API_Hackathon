@@ -80,9 +80,7 @@ public class UsuarioService : IUsuarioService
         // Actualizar URL en BD (ruta relativa)
         usuario.FotoPerfil = $"/fotos-perfil/{nombreArchivo}";
 
-        _db.Usuarios.Update(usuario);
         await _db.SaveChangesAsync();
-
         return await ConstruirRespuestaAsync(usuario);
     }
 
@@ -121,11 +119,25 @@ public class UsuarioService : IUsuarioService
         if (!string.IsNullOrWhiteSpace(request.Correo))
             usuario.Correo = request.Correo;
 
+        if (!string.IsNullOrWhiteSpace(request.Genero))
+            usuario.Genero = request.Genero;
+
+        if (request.MunicipioID.HasValue)
+            usuario.MunicipioID = request.MunicipioID.Value;
+
         if (!string.IsNullOrWhiteSpace(request.DireccionExacta))
             usuario.DireccionExacta = request.DireccionExacta;
 
-        _db.Usuarios.Update(usuario);
+        if (request.IdiomaPreferidoID.HasValue)
+            usuario.IdiomaPreferidoID = request.IdiomaPreferidoID.Value;
+
+        if (request.EsProductora.HasValue)
+            usuario.EsProductora = request.EsProductora.Value;
+
         await _db.SaveChangesAsync();
+        usuario.Municipio = await _db.Municipios
+            .Include(m => m.Departamento)
+            .FirstAsync(m => m.MunicipioID == usuario.MunicipioID);
 
         return await ConstruirRespuestaAsync(usuario);
     }
@@ -163,9 +175,12 @@ public class UsuarioService : IUsuarioService
             Apellidos = usuario.Apellidos,
             Telefono = usuario.Telefono,
             Correo = usuario.Correo,
+            Genero = usuario.Genero,
+            MunicipioID = usuario.MunicipioID,
             Municipio = usuario.Municipio?.Nombre,
             Departamento = usuario.Municipio?.Departamento?.Nombre,
             DireccionExacta = usuario.DireccionExacta,
+            IdiomaPreferidoID = usuario.IdiomaPreferidoID,
             EsProductora = usuario.EsProductora,
             FotoPerfil = usuario.FotoPerfil,
             PromedioValoracion = Math.Round(promedio, 1)
@@ -196,4 +211,3 @@ public class UsuarioService : IUsuarioService
         return (true, "");
     }
 }
-

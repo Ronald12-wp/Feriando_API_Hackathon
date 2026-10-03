@@ -36,6 +36,8 @@ public class ProductoCreateRequest
 
 public class ProductoUpdateRequest
 {
+    public int? CategoriaID { get; set; }
+    public int? UnidadMedidaID { get; set; }
     public string? Nombre { get; set; }
     public string? Descripcion { get; set; }
     public decimal? Cantidad { get; set; }
@@ -65,6 +67,8 @@ public class ProductoResponse
     public int UsuarioID { get; set; }
     public string NombreProductora { get; set; } = string.Empty;
     public string Comunidad { get; set; } = string.Empty;
+    public int? MunicipioID { get; set; }
+    public string? DireccionExacta { get; set; }
 
     // Añadido: propiedades de localización que usa el controlador
     public string Municipio { get; set; } = string.Empty;

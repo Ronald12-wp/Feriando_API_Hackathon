@@ -100,10 +100,13 @@ public class AuthService : IAuthService
                 Apellidos = usuario.Apellidos,
                 Telefono = usuario.Telefono,
                 Correo = usuario.Correo,
+                Genero = usuario.Genero,
                 // --- CAMBIOS DE LOCALIZACIÓN ---
+                MunicipioID = usuario.MunicipioID,
                 Municipio = municipio?.Nombre,
                 Departamento = municipio?.Departamento?.Nombre,
                 DireccionExacta = usuario.DireccionExacta,
+                IdiomaPreferidoID = usuario.IdiomaPreferidoID,
                 // -------------------------------
                 EsProductora = usuario.EsProductora,
                 FotoPerfil = usuario.FotoPerfil,

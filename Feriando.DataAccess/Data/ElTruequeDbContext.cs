@@ -18,6 +18,7 @@ public class ElTruequeDbContext : DbContext
     public DbSet<Trueque> Trueques => Set<Trueque>();
     public DbSet<Valoracion> Valoraciones => Set<Valoracion>();
     public DbSet<Notificacion> Notificaciones => Set<Notificacion>();
+    public DbSet<MensajeChat> MensajesChat { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -73,6 +74,12 @@ public class ElTruequeDbContext : DbContext
         modelBuilder.Entity<Producto>()
             .Property(p => p.Estado)
             .HasDefaultValue("Disponible");
+
+        modelBuilder.Entity<Producto>()
+            .HasOne(p => p.Municipio)
+            .WithMany()
+            .HasForeignKey(p => p.MunicipioID)
+            .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<Trueque>()
             .Property(t => t.Estado)

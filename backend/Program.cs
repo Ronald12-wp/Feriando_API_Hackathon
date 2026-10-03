@@ -1,6 +1,7 @@
 using System.Text;
 using ElTrueque.Api.Data;
 using ElTrueque.Api.Services;
+using Feriando.Api.Hubs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -19,6 +20,9 @@ builder.Services.AddScoped<IProductoService, ProductoService>();
 builder.Services.AddScoped<ITruequeService, TruequeService>();
 builder.Services.AddScoped<INotificacionService, NotificacionService>();
 
+// ---------- SignalR (tiempo real) ----------
+builder.Services.AddSignalR();
+
 // ---------- Autenticación JWT ----------
 var jwtKey = builder.Configuration["Jwt:Key"]!;
 builder.Services.AddAuthentication(options =>
@@ -26,7 +30,7 @@ builder.Services.AddAuthentication(options =>
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-.AddJwtBearer(options =>  
+.AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -42,14 +46,15 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-// ---------- CORS ----------
+// ---------- CORS (Configurado para SignalR / WebSockets) ----------
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("PermitirApp", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.SetIsOriginAllowed(_ => true) // Permite origen dinámico para la app móvil
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials(); // Obligatorio para WebSockets/SignalR
     });
 });
 
@@ -100,4 +105,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// ---------- Endpoint del Hub de SignalR ----------
+app.MapHub<ChatHub>("/chatHub");
+
+// ---------- Iniciar la aplicación (debe ser la ÚLTIMA línea) ----------
 app.Run();
