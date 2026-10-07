@@ -46,16 +46,15 @@ public class UsuariosController : ControllerBase
     /// Actualiza la foto de perfil del usuario autenticado
     /// </summary>
     [HttpPut("fotoPerfil")]
-    [Consumes("multipart/form-data")]
-    public async Task<ActionResult<UsuarioResponse>> ActualizarFotoPerfil([FromForm] ActualizarFotoPerfilRequest request)
+    public async Task<ActionResult<UsuarioResponse>> ActualizarFotoPerfil(IFormFile fotoPerfil)
     {
         try
         {
-            if (request?.Imagenes is null || request.Imagenes.Length == 0)
+            if (fotoPerfil is null || fotoPerfil.Length == 0)
                 return BadRequest(new { mensaje = "No se proporcionó imagen" });
 
             int usuarioID = HttpContext.User.GetUsuarioID();
-            var resultado = await _usuarioService.ActualizarFotoPerfilAsync(usuarioID, request.Imagenes);
+            var resultado = await _usuarioService.ActualizarFotoPerfilAsync(usuarioID, fotoPerfil);
 
             if (resultado is null)
                 return NotFound(new { mensaje = "Usuario no encontrado" });
