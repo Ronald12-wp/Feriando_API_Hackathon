@@ -1,24 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Feriando_API_Hackathon\\",
+  "WorkspaceRootPath": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\",
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\laptop\\AppData\\Local\\SourceServer\\e1f9f8fb5004ce7a6e392b61dd6a171ed1d43a0e67dd5ff9e49ad976dcffc45b\\Feriando.Business\\Services\\ProductoService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|d:\\feriando_api_hackathon\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|c:\\users\\josue\\source\\repos\\ronald12-wp\\feriando_api_hackathon\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|d:\\feriando_api_hackathon\\backend\\controllers\\chatcontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|c:\\users\\josue\\source\\repos\\ronald12-wp\\feriando_api_hackathon\\backend\\controllers\\chatcontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|solutionrelative:backend\\controllers\\chatcontrollercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EFB9A40E-F073-46D8-B552-D2FDCA376AC1}|Feriando.DataAccess\\Feriando.DataAccess.csproj|d:\\feriando_api_hackathon\\feriando.dataaccess\\data\\eltruequedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EFB9A40E-F073-46D8-B552-D2FDCA376AC1}|Feriando.DataAccess\\Feriando.DataAccess.csproj|c:\\users\\josue\\source\\repos\\ronald12-wp\\feriando_api_hackathon\\feriando.dataaccess\\data\\eltruequedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EFB9A40E-F073-46D8-B552-D2FDCA376AC1}|Feriando.DataAccess\\Feriando.DataAccess.csproj|solutionrelative:feriando.dataaccess\\data\\eltruequedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D2EE5228-1AAC-4E06-BE8B-08C274926801}|Feriando.Core\\Feriando.Core.csproj|d:\\feriando_api_hackathon\\feriando.core\\models\\mensajechat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D2EE5228-1AAC-4E06-BE8B-08C274926801}|Feriando.Core\\Feriando.Core.csproj|c:\\users\\josue\\source\\repos\\ronald12-wp\\feriando_api_hackathon\\feriando.core\\models\\mensajechat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D2EE5228-1AAC-4E06-BE8B-08C274926801}|Feriando.Core\\Feriando.Core.csproj|solutionrelative:feriando.core\\models\\mensajechat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -36,32 +36,31 @@
               "DocumentIndex": 0,
               "Title": "ProductoService.cs",
               "DocumentMoniker": "C:\\Users\\laptop\\AppData\\Local\\SourceServer\\e1f9f8fb5004ce7a6e392b61dd6a171ed1d43a0e67dd5ff9e49ad976dcffc45b\\Feriando.Business\\Services\\ProductoService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\laptop\\AppData\\Local\\SourceServer\\e1f9f8fb5004ce7a6e392b61dd6a171ed1d43a0e67dd5ff9e49ad976dcffc45b\\Feriando.Business\\Services\\ProductoService.cs",
               "ToolTip": "C:\\Users\\laptop\\AppData\\Local\\SourceServer\\e1f9f8fb5004ce7a6e392b61dd6a171ed1d43a0e67dd5ff9e49ad976dcffc45b\\Feriando.Business\\Services\\ProductoService.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAArwJwAAAAIAAAAAAAAAA==",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\laptop\\AppData\\Local\\SourceServer\\e1f9f8fb5004ce7a6e392b61dd6a171ed1d43a0e67dd5ff9e49ad976dcffc45b\\Feriando.Business\\Services\\ProductoService.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-03T05:42:28.71Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-03T05:42:28.71Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Feriando_API_Hackathon\\backend\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "backend\\appsettings.json",
-              "ToolTip": "D:\\Feriando_API_Hackathon\\backend\\appsettings.json",
+              "ToolTip": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\backend\\appsettings.json",
               "RelativeToolTip": "backend\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-09-29T17:36:18.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-29T17:36:18.956Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "ChatControllercs.cs",
-              "DocumentMoniker": "D:\\Feriando_API_Hackathon\\backend\\Controllers\\ChatControllercs.cs",
+              "DocumentMoniker": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\backend\\Controllers\\ChatControllercs.cs",
               "RelativeDocumentMoniker": "backend\\Controllers\\ChatControllercs.cs",
-              "ToolTip": "D:\\Feriando_API_Hackathon\\backend\\Controllers\\ChatControllercs.cs",
+              "ToolTip": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\backend\\Controllers\\ChatControllercs.cs",
               "RelativeToolTip": "backend\\Controllers\\ChatControllercs.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -71,9 +70,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "ElTruequeDbContext.cs",
-              "DocumentMoniker": "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Data\\ElTruequeDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.DataAccess\\Data\\ElTruequeDbContext.cs",
               "RelativeDocumentMoniker": "Feriando.DataAccess\\Data\\ElTruequeDbContext.cs",
-              "ToolTip": "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Data\\ElTruequeDbContext.cs",
+              "ToolTip": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.DataAccess\\Data\\ElTruequeDbContext.cs",
               "RelativeToolTip": "Feriando.DataAccess\\Data\\ElTruequeDbContext.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAAAFEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -83,13 +82,17 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "MensajeChat.cs",
-              "DocumentMoniker": "D:\\Feriando_API_Hackathon\\Feriando.Core\\Models\\MensajeChat.cs",
+              "DocumentMoniker": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Core\\Models\\MensajeChat.cs",
               "RelativeDocumentMoniker": "Feriando.Core\\Models\\MensajeChat.cs",
-              "ToolTip": "D:\\Feriando_API_Hackathon\\Feriando.Core\\Models\\MensajeChat.cs",
+              "ToolTip": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Core\\Models\\MensajeChat.cs",
               "RelativeToolTip": "Feriando.Core\\Models\\MensajeChat.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-29T16:23:22.553Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
