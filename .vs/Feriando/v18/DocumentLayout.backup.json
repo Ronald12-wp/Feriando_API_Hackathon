@@ -1,30 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\laptop\\Downloads\\Fereando-API\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Feriando Nuevo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|c:\\users\\laptop\\downloads\\fereando-api\\backend\\feriando.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|solutionrelative:backend\\feriando.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{D324A6F8-E2E3-44F4-9249-5266B47AFFB0}|Feriando.Business\\Feriando.Business.csproj|c:\\users\\user\\desktop\\feriando nuevo\\feriando.business\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D324A6F8-E2E3-44F4-9249-5266B47AFFB0}|Feriando.Business\\Feriando.Business.csproj|solutionrelative:feriando.business\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D2EE5228-1AAC-4E06-BE8B-08C274926801}|Feriando.Core\\Feriando.Core.csproj|c:\\users\\laptop\\downloads\\fereando-api\\feriando.core\\feriando.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{D2EE5228-1AAC-4E06-BE8B-08C274926801}|Feriando.Core\\Feriando.Core.csproj|solutionrelative:feriando.core\\feriando.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|c:\\users\\user\\desktop\\feriando nuevo\\backend\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|solutionrelative:backend\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|c:\\users\\laptop\\downloads\\fereando-api\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D324A6F8-E2E3-44F4-9249-5266B47AFFB0}|Feriando.Business\\Feriando.Business.csproj|c:\\users\\laptop\\downloads\\fereando-api\\feriando.business\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D324A6F8-E2E3-44F4-9249-5266B47AFFB0}|Feriando.Business\\Feriando.Business.csproj|solutionrelative:feriando.business\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D324A6F8-E2E3-44F4-9249-5266B47AFFB0}|Feriando.Business\\Feriando.Business.csproj|c:\\users\\laptop\\downloads\\fereando-api\\feriando.business\\feriando.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{D324A6F8-E2E3-44F4-9249-5266B47AFFB0}|Feriando.Business\\Feriando.Business.csproj|solutionrelative:feriando.business\\feriando.business.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|c:\\users\\laptop\\downloads\\fereando-api\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|solutionrelative:backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D2EE5228-1AAC-4E06-BE8B-08C274926801}|Feriando.Core\\Feriando.Core.csproj|c:\\users\\user\\desktop\\feriando nuevo\\feriando.core\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2EE5228-1AAC-4E06-BE8B-08C274926801}|Feriando.Core\\Feriando.Core.csproj|solutionrelative:feriando.core\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,90 +22,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Feriando Nuevo\\Feriando.Core\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Feriando.Core\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Feriando Nuevo\\Feriando.Core\\Models\\Usuario.cs",
+              "RelativeToolTip": "Feriando.Core\\Models\\Usuario.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAywCsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-03T02:57:26.674Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Feriando Nuevo\\Feriando.Business\\Services\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "Feriando.Business\\Services\\UsuarioService.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Feriando Nuevo\\Feriando.Business\\Services\\UsuarioService.cs",
+              "RelativeToolTip": "Feriando.Business\\Services\\UsuarioService.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-03T02:58:51.236Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Business\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "Feriando.Business\\Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Business\\Services\\AuthService.cs",
-              "RelativeToolTip": "Feriando.Business\\Services\\AuthService.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAuwEQAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-12T03:01:27.832Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Feriando.Core.csproj",
-              "DocumentMoniker": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Core\\Feriando.Core.csproj",
-              "RelativeDocumentMoniker": "Feriando.Core\\Feriando.Core.csproj",
-              "ToolTip": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Core\\Feriando.Core.csproj",
-              "RelativeToolTip": "Feriando.Core\\Feriando.Core.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-08-12T02:44:28.038Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\laptop\\Downloads\\Fereando-API\\backend\\appsettings.json",
-              "RelativeDocumentMoniker": "backend\\appsettings.json",
-              "ToolTip": "C:\\Users\\laptop\\Downloads\\Fereando-API\\backend\\appsettings.json",
-              "RelativeToolTip": "backend\\appsettings.json",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAkwBAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-08-07T06:24:44.957Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Feriando.Api.csproj",
-              "DocumentMoniker": "C:\\Users\\laptop\\Downloads\\Fereando-API\\backend\\Feriando.Api.csproj",
-              "RelativeDocumentMoniker": "backend\\Feriando.Api.csproj",
-              "ToolTip": "C:\\Users\\laptop\\Downloads\\Fereando-API\\backend\\Feriando.Api.csproj",
-              "RelativeToolTip": "backend\\Feriando.Api.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-08-07T23:10:29.031Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Feriando.Business.csproj",
-              "DocumentMoniker": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Business\\Feriando.Business.csproj",
-              "RelativeDocumentMoniker": "Feriando.Business\\Feriando.Business.csproj",
-              "ToolTip": "C:\\Users\\laptop\\Downloads\\Fereando-API\\Feriando.Business\\Feriando.Business.csproj",
-              "RelativeToolTip": "Feriando.Business\\Feriando.Business.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-08-12T02:41:48.179Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\laptop\\Downloads\\Fereando-API\\backend\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "backend\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\laptop\\Downloads\\Fereando-API\\backend\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "backend\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwAcAAAAbAAAAAAAAAA==",
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Feriando Nuevo\\backend\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Feriando Nuevo\\backend\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "backend\\Controllers\\UsuariosController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAUwE4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-29T04:48:16.706Z"
+              "WhenOpened": "2026-10-03T03:01:16.339Z"
             }
           ]
         }

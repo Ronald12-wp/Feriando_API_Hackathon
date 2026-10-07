@@ -10,3 +10,28 @@ C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\Feriando.
 C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\refint\Feriando.Core.dll
 C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\Feriando.Core.pdb
 C:\Users\laptop\Downloads\Fereando-API\Feriando.Core\obj\Debug\net10.0\ref\Feriando.Core.dll
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\bin\Debug\net10.0\Feriando.Core.deps.json
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\bin\Debug\net10.0\Feriando.Core.dll
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\bin\Debug\net10.0\Feriando.Core.pdb
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\obj\Debug\net10.0\Feriando.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\obj\Debug\net10.0\Feriando.Core.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\obj\Debug\net10.0\Feriando.Core.AssemblyInfo.cs
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\obj\Debug\net10.0\Feriando.Core.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\obj\Debug\net10.0\Feriando.Core.sourcelink.json
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\obj\Debug\net10.0\Feriando.Core.dll
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\obj\Debug\net10.0\refint\Feriando.Core.dll
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\obj\Debug\net10.0\Feriando.Core.pdb
+C:\Users\User\Desktop\Nueva carpeta\Feriando.Core\obj\Debug\net10.0\ref\Feriando.Core.dll
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\bin\Debug\net10.0\Feriando.Core.deps.json
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\bin\Debug\net10.0\Feriando.Core.dll
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\bin\Debug\net10.0\Feriando.Core.pdb
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\obj\Debug\net10.0\Feriando.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\obj\Debug\net10.0\Feriando.Core.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\obj\Debug\net10.0\Feriando.Core.AssemblyInfo.cs
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\obj\Debug\net10.0\Feriando.Core.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\obj\Debug\net10.0\Feriando.Core.sourcelink.json
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\obj\Debug\net10.0\Feriando.Core.dll
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\obj\Debug\net10.0\refint\Feriando.Core.dll
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\obj\Debug\net10.0\Feriando.Core.pdb
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\obj\Debug\net10.0\ref\Feriando.Core.dll
+C:\Users\User\Desktop\Feriando Nuevo\Feriando.Core\obj\Debug\net10.0\Feriando.422483DF.Up2Date
