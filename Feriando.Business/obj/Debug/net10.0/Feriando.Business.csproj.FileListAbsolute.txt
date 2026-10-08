@@ -16,6 +16,9 @@ C:\Users\laptop\Downloads\Fereando-API\Feriando.Business\obj\Debug\net10.0\Feria
 C:\Users\laptop\Downloads\Fereando-API\Feriando.Business\obj\Debug\net10.0\refint\Feriando.Business.dll
 C:\Users\laptop\Downloads\Fereando-API\Feriando.Business\obj\Debug\net10.0\Feriando.Business.pdb
 C:\Users\laptop\Downloads\Fereando-API\Feriando.Business\obj\Debug\net10.0\ref\Feriando.Business.dll
+C:\Users\laptop\AppData\Local\Temp\feriando-api-validation\Debug\net10.0\Feriando.Business.deps.json
+C:\Users\laptop\AppData\Local\Temp\feriando-api-validation\Debug\net10.0\Feriando.Business.dll
+C:\Users\laptop\AppData\Local\Temp\feriando-api-validation\Debug\net10.0\Feriando.Business.pdb
 D:\Feriando_API_Hackathon\Feriando.Business\bin\Debug\net10.0\Feriando.Business.deps.json
 D:\Feriando_API_Hackathon\Feriando.Business\bin\Debug\net10.0\Feriando.Business.dll
 D:\Feriando_API_Hackathon\Feriando.Business\bin\Debug\net10.0\Feriando.Business.pdb
@@ -34,6 +37,3 @@ D:\Feriando_API_Hackathon\Feriando.Business\obj\Debug\net10.0\Feriando.Business.
 D:\Feriando_API_Hackathon\Feriando.Business\obj\Debug\net10.0\refint\Feriando.Business.dll
 D:\Feriando_API_Hackathon\Feriando.Business\obj\Debug\net10.0\Feriando.Business.pdb
 D:\Feriando_API_Hackathon\Feriando.Business\obj\Debug\net10.0\ref\Feriando.Business.dll
-C:\Users\laptop\AppData\Local\Temp\feriando-api-validation\Debug\net10.0\Feriando.Business.deps.json
-C:\Users\laptop\AppData\Local\Temp\feriando-api-validation\Debug\net10.0\Feriando.Business.dll
-C:\Users\laptop\AppData\Local\Temp\feriando-api-validation\Debug\net10.0\Feriando.Business.pdb

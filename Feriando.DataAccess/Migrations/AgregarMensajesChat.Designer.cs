@@ -128,7 +128,8 @@ namespace Feriando.DataAccess.Migrations
 
                     b.Property<string>("ChatId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("EmisorId")
                         .HasColumnType("int");

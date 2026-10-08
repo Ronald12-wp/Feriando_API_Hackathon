@@ -19,6 +19,7 @@ public class ElTruequeDbContext : DbContext
     public DbSet<Valoracion> Valoraciones => Set<Valoracion>();
     public DbSet<Notificacion> Notificaciones => Set<Notificacion>();
     public DbSet<MensajeChat> MensajesChat { get; set; }
+    public DbSet<ConversacionOculta> ConversacionesOcultas => Set<ConversacionOculta>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -67,22 +68,50 @@ public class ElTruequeDbContext : DbContext
             .IsUnique();
 
         modelBuilder.Entity<Usuario>()
+            .HasIndex(u => u.Cedula)
+            .IsUnique()
+            .HasFilter("[Cedula] IS NOT NULL");
+
+        modelBuilder.Entity<Usuario>()
             .HasIndex(u => u.Correo)
             .IsUnique()
             .HasFilter("[Correo] IS NOT NULL");
+
+        modelBuilder.Entity<Usuario>()
+            .HasOne(u => u.Departamento)
+            .WithMany()
+            .HasForeignKey(u => u.DepartamentoID)
+            .OnDelete(DeleteBehavior.Restrict);
 
         modelBuilder.Entity<Producto>()
             .Property(p => p.Estado)
             .HasDefaultValue("Disponible");
 
         modelBuilder.Entity<Producto>()
-            .HasOne(p => p.Municipio)
-            .WithMany()
-            .HasForeignKey(p => p.MunicipioID)
-            .OnDelete(DeleteBehavior.Restrict);
+            .ToTable(table => table.HasCheckConstraint(
+                "CK_Productos_Estado",
+                "[Estado] IN (N'Disponible', N'Reservado', N'Intercambiado', N'Inactivo')"));
 
         modelBuilder.Entity<Trueque>()
             .Property(t => t.Estado)
             .HasDefaultValue("Pendiente");
+
+        modelBuilder.Entity<Trueque>()
+            .ToTable(table => table.HasCheckConstraint(
+                "CK_Trueques_Estado",
+                "[Estado] IN (N'Pendiente', N'Aceptado', N'Rechazado', N'Completado', N'Cancelado')"));
+
+        modelBuilder.Entity<Valoracion>()
+            .HasIndex(v => new { v.TruequeID, v.UsuarioEvaluadorID })
+            .IsUnique();
+
+        modelBuilder.Entity<ConversacionOculta>()
+            .HasKey(c => new { c.UsuarioID, c.ChatId });
+
+        modelBuilder.Entity<ConversacionOculta>()
+            .HasOne<Usuario>()
+            .WithMany()
+            .HasForeignKey(c => c.UsuarioID)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

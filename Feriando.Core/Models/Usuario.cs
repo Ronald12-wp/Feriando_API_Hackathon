@@ -17,6 +17,9 @@ public class Usuario
     [Required, MaxLength(20)]
     public string Telefono { get; set; } = string.Empty;
 
+    [MaxLength(20)]
+    public string? Cedula { get; set; }
+
     [MaxLength(150)]
     public string? Correo { get; set; }
 
@@ -27,14 +30,18 @@ public class Usuario
     [MaxLength(1)]
     public string? Genero { get; set; } // F, M, O
 
-    public DateTime? FechaNacimiento { get; set; }
-
     // --- LOCALIZACIÓN ACTUALIZADA ---
     [Required]
     public int MunicipioID { get; set; }
 
     [ForeignKey(nameof(MunicipioID))]
     public Municipio? Municipio { get; set; }
+
+    [Required]
+    public int DepartamentoID { get; set; }
+
+    [ForeignKey(nameof(DepartamentoID))]
+    public Departamento? Departamento { get; set; }
 
     [Required, MaxLength(300)]
     public string DireccionExacta { get; set; } = string.Empty;

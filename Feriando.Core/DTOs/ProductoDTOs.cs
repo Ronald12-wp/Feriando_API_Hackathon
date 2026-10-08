@@ -20,10 +20,6 @@ public class ProductoCreateRequest
     [Required]
     public int UnidadMedidaID { get; set; }
 
-    public int? MunicipioID { get; set; }
-
-    public string? DireccionExacta { get; set; }
-
     [Required]
     public string TipoOferta { get; set; } = "Trueque"; // Trueque | Venta | Ambos
 
@@ -41,13 +37,16 @@ public class ProductoUpdateRequest
     public string? Nombre { get; set; }
     public string? Descripcion { get; set; }
     public decimal? Cantidad { get; set; }
-    public int? MunicipioID { get; set; }
-    public string? DireccionExacta { get; set; }
     public string? TipoOferta { get; set; }
     public decimal? PrecioReferencial { get; set; }
-    public string? Estado { get; set; } // Disponible | Reservado | Intercambiado | Inactivo
     public bool ReemplazarImagenes { get; set; }
     public List<IFormFile>? ImagenesArchivos { get; set; }
+}
+
+public class ProductoEstadoRequest
+{
+    [Required, MaxLength(20)]
+    public string Estado { get; set; } = string.Empty;
 }
 
 public class ProductoResponse
@@ -67,9 +66,6 @@ public class ProductoResponse
     public int UsuarioID { get; set; }
     public string NombreProductora { get; set; } = string.Empty;
     public string Comunidad { get; set; } = string.Empty;
-    public int? MunicipioID { get; set; }
-    public string? DireccionExacta { get; set; }
-
     // Añadido: propiedades de localización que usa el controlador
     public string Municipio { get; set; } = string.Empty;
     public string Departamento { get; set; } = string.Empty;

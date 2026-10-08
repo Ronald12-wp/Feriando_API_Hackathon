@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Feriando_API_Hackathon\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EFB9A40E-F073-46D8-B552-D2FDCA376AC1}|Feriando.DataAccess\\Feriando.DataAccess.csproj|d:\\feriando_api_hackathon\\feriando.dataaccess\\data\\eltruequedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EFB9A40E-F073-46D8-B552-D2FDCA376AC1}|Feriando.DataAccess\\Feriando.DataAccess.csproj|solutionrelative:feriando.dataaccess\\data\\eltruequedbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|d:\\feriando_api_hackathon\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-4A5B-8C9D-1234567890AB}|backend\\Feriando.Api.csproj|solutionrelative:backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ElTruequeDbContext.cs",
+              "DocumentMoniker": "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Data\\ElTruequeDbContext.cs",
+              "RelativeDocumentMoniker": "Feriando.DataAccess\\Data\\ElTruequeDbContext.cs",
+              "ToolTip": "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Data\\ElTruequeDbContext.cs",
+              "RelativeToolTip": "Feriando.DataAccess\\Data\\ElTruequeDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-07T06:51:36.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Feriando_API_Hackathon\\backend\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Feriando_API_Hackathon\\backend\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "backend\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-03T14:31:52.89Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

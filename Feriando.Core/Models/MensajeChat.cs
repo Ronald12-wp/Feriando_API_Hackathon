@@ -10,7 +10,7 @@ namespace ElTrueque.Api.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required, MaxLength(100)]
         public string ChatId { get; set; } = string.Empty; // Identificador del grupo (ej. "trueque_15")
 
         [Required]
@@ -22,5 +22,17 @@ namespace ElTrueque.Api.Models
         public DateTime FechaEnvio { get; set; } = DateTime.Now;
 
         public bool Leido { get; set; } = false;
+    }
+
+    [Table("ConversacionesOcultas")]
+    public class ConversacionOculta
+    {
+        [Required]
+        public int UsuarioID { get; set; }
+
+        [Required, MaxLength(100)]
+        public string ChatId { get; set; } = string.Empty;
+
+        public DateTime FechaOcultacion { get; set; } = DateTime.UtcNow;
     }
 }
