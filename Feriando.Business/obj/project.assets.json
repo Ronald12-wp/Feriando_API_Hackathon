@@ -1233,23 +1233,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\laptop\\.nuget\\packages\\": {},
+    "C:\\Users\\Josue\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Feriando_API_Hackathon\\Feriando.Business\\Feriando.Business.csproj",
+      "projectUniqueName": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Business\\Feriando.Business.csproj",
       "projectName": "Feriando.Business",
-      "projectPath": "D:\\Feriando_API_Hackathon\\Feriando.Business\\Feriando.Business.csproj",
-      "packagesPath": "C:\\Users\\laptop\\.nuget\\packages\\",
-      "outputPath": "D:\\Feriando_API_Hackathon\\Feriando.Business\\obj\\",
+      "projectPath": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Business\\Feriando.Business.csproj",
+      "packagesPath": "C:\\Users\\Josue\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Business\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Josue\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1265,11 +1265,11 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj": {
-              "projectPath": "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj"
+            "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj": {
+              "projectPath": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj"
             },
-            "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Feriando.DataAccess.csproj": {
-              "projectPath": "D:\\Feriando_API_Hackathon\\Feriando.DataAccess\\Feriando.DataAccess.csproj"
+            "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.DataAccess\\Feriando.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.DataAccess\\Feriando.DataAccess.csproj"
             }
           }
         }

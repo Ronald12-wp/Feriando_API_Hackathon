@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj": {}
+    "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj": {}
   },
   "projects": {
-    "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj": {
+    "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj",
         "projectName": "Feriando.Core",
-        "projectPath": "D:\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj",
-        "packagesPath": "C:\\Users\\laptop\\.nuget\\packages\\",
-        "outputPath": "D:\\Feriando_API_Hackathon\\Feriando.Core\\obj\\",
+        "projectPath": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Core\\Feriando.Core.csproj",
+        "packagesPath": "C:\\Users\\Josue\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Josue\\source\\repos\\Ronald12-wp\\Feriando_API_Hackathon\\Feriando.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Josue\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
