@@ -4,6 +4,7 @@ using ElTrueque.Api.DTOs;
 using ElTrueque.Api.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace ElTrueque.Api.Services;
 
@@ -13,8 +14,17 @@ public interface IProductoService
     Task<ProductoResponse?> ObtenerAsync(int id);
     Task<ProductoResponse> CrearAsync(int usuarioID, ProductoCreateRequest request);
     Task<bool> ActualizarAsync(int id, int usuarioID, ProductoUpdateRequest request);
+    Task<CambioEstadoProductoResultado> CambiarEstadoAsync(int id, int usuarioID, string estado);
     Task<bool> EliminarAsync(int id, int usuarioID);
     Task<List<ProductoResponse>> MiosAsync(int usuarioID);
+}
+
+public enum CambioEstadoProductoResultado
+{
+    Actualizado,
+    NoEncontrado,
+    SinPermiso,
+    TransicionInvalida
 }
 
 public class ProductoService : IProductoService
@@ -32,7 +42,6 @@ public class ProductoService : IProductoService
     {
         var query = _db.Productos
             .Include(p => p.Usuario).ThenInclude(u => u!.Municipio).ThenInclude(m => m!.Departamento)
-            .Include(p => p.Municipio).ThenInclude(m => m!.Departamento)
             .Include(p => p.Categoria)
             .Include(p => p.UnidadMedida)
             .Include(p => p.Imagenes)
@@ -45,13 +54,10 @@ public class ProductoService : IProductoService
             query = query.Where(p => p.CategoriaID == filtro.CategoriaID.Value);
 
         if (filtro.MunicipioID.HasValue)
-            query = query.Where(p => (p.MunicipioID ?? p.Usuario!.MunicipioID) == filtro.MunicipioID.Value);
+            query = query.Where(p => p.Usuario!.MunicipioID == filtro.MunicipioID.Value);
 
         if (filtro.DepartamentoID.HasValue)
-            query = query.Where(p =>
-                (p.MunicipioID.HasValue
-                    ? p.Municipio!.DepartamentoID
-                    : p.Usuario!.Municipio!.DepartamentoID) == filtro.DepartamentoID.Value);
+            query = query.Where(p => p.Usuario!.Municipio!.DepartamentoID == filtro.DepartamentoID.Value);
 
         if (!string.IsNullOrWhiteSpace(filtro.TipoOferta))
             query = query.Where(p => p.TipoOferta == filtro.TipoOferta || p.TipoOferta == "Ambos");
@@ -72,7 +78,6 @@ public class ProductoService : IProductoService
     {
         var producto = await _db.Productos
             .Include(p => p.Usuario).ThenInclude(u => u!.Municipio).ThenInclude(m => m!.Departamento)
-            .Include(p => p.Municipio).ThenInclude(m => m!.Departamento)
             .Include(p => p.Categoria)
             .Include(p => p.UnidadMedida)
             .Include(p => p.Imagenes)
@@ -83,19 +88,6 @@ public class ProductoService : IProductoService
 
     public async Task<ProductoResponse> CrearAsync(int usuarioID, ProductoCreateRequest request)
     {
-        var municipioID = request.MunicipioID;
-        var direccionExacta = request.DireccionExacta;
-        if (!municipioID.HasValue || string.IsNullOrWhiteSpace(direccionExacta))
-        {
-            var usuario = await _db.Usuarios
-                .Where(u => u.UsuarioID == usuarioID)
-                .Select(u => new { u.MunicipioID, u.DireccionExacta })
-                .FirstAsync();
-            municipioID ??= usuario.MunicipioID;
-            if (string.IsNullOrWhiteSpace(direccionExacta))
-                direccionExacta = usuario.DireccionExacta;
-        }
-
         var producto = new Producto
         {
             UsuarioID = usuarioID,
@@ -104,8 +96,6 @@ public class ProductoService : IProductoService
             Descripcion = request.Descripcion,
             Cantidad = request.Cantidad,
             UnidadMedidaID = request.UnidadMedidaID,
-            MunicipioID = municipioID,
-            DireccionExacta = direccionExacta,
             TipoOferta = request.TipoOferta,
             PrecioReferencial = request.PrecioReferencial,
             Estado = "Disponible",
@@ -127,7 +117,6 @@ public class ProductoService : IProductoService
 
         var creado = await _db.Productos
             .Include(p => p.Usuario).ThenInclude(u => u!.Municipio).ThenInclude(m => m!.Departamento)
-            .Include(p => p.Municipio).ThenInclude(m => m!.Departamento)
             .Include(p => p.Categoria)
             .Include(p => p.UnidadMedida)
             .Include(p => p.Imagenes)
@@ -154,19 +143,11 @@ public class ProductoService : IProductoService
         if (request.UnidadMedidaID.HasValue)
             producto.UnidadMedidaID = request.UnidadMedidaID.Value;
 
-        if (request.MunicipioID.HasValue)
-            producto.MunicipioID = request.MunicipioID.Value;
-
-        if (request.DireccionExacta is not null)
-            producto.DireccionExacta = request.DireccionExacta;
-
         producto.Nombre = request.Nombre ?? producto.Nombre;
         producto.Descripcion = request.Descripcion ?? producto.Descripcion;
         producto.Cantidad = request.Cantidad ?? producto.Cantidad;
         producto.TipoOferta = request.TipoOferta ?? producto.TipoOferta;
         producto.PrecioReferencial = request.PrecioReferencial ?? producto.PrecioReferencial;
-        producto.Estado = request.Estado ?? producto.Estado;
-
         if (request.ReemplazarImagenes || request.ImagenesArchivos is { Count: > 0 })
         {
             await EliminarImagenesAsync(producto.ProductoID);
@@ -175,6 +156,30 @@ public class ProductoService : IProductoService
 
         await _db.SaveChangesAsync();
         return true;
+    }
+
+    public async Task<CambioEstadoProductoResultado> CambiarEstadoAsync(int id, int usuarioID, string estado)
+    {
+        await using var transaction = await _db.Database.BeginTransactionAsync(IsolationLevel.Serializable);
+
+        var producto = await _db.Productos.FirstOrDefaultAsync(p => p.ProductoID == id);
+        if (producto is null)
+            return CambioEstadoProductoResultado.NoEncontrado;
+
+        if (producto.UsuarioID != usuarioID)
+            return CambioEstadoProductoResultado.SinPermiso;
+
+        var transicionPermitida =
+            (producto.Estado == "Disponible" && estado == "Inactivo") ||
+            (producto.Estado == "Inactivo" && estado == "Disponible");
+
+        if (!transicionPermitida)
+            return CambioEstadoProductoResultado.TransicionInvalida;
+
+        producto.Estado = estado;
+        await _db.SaveChangesAsync();
+        await transaction.CommitAsync();
+        return CambioEstadoProductoResultado.Actualizado;
     }
 
     public async Task<bool> EliminarAsync(int id, int usuarioID)
@@ -195,7 +200,6 @@ public class ProductoService : IProductoService
     {
         return await _db.Productos
             .Include(p => p.Usuario).ThenInclude(u => u!.Municipio).ThenInclude(m => m!.Departamento)
-            .Include(p => p.Municipio).ThenInclude(m => m!.Departamento)
             .Include(p => p.Categoria)
             .Include(p => p.UnidadMedida)
             .Include(p => p.Imagenes)
@@ -280,11 +284,7 @@ public class ProductoService : IProductoService
         Imagenes = p.Imagenes.OrderBy(i => i.Orden).Select(i => i.UrlImagen).ToList(),
         UsuarioID = p.UsuarioID,
         NombreProductora = p.Usuario is null ? string.Empty : $"{p.Usuario.Nombres} {p.Usuario.Apellidos}",
-        MunicipioID = p.MunicipioID ?? p.Usuario?.MunicipioID,
-        DireccionExacta = p.DireccionExacta ?? p.Usuario?.DireccionExacta,
-        Municipio = p.Municipio?.Nombre ?? p.Usuario?.Municipio?.Nombre ?? string.Empty,
-        Departamento = p.Municipio?.Departamento?.Nombre
-            ?? p.Usuario?.Municipio?.Departamento?.Nombre
-            ?? string.Empty
+        Municipio = p.Usuario?.Municipio?.Nombre ?? string.Empty,
+        Departamento = p.Usuario?.Municipio?.Departamento?.Nombre ?? string.Empty
     };
 }

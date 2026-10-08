@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Feriando.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ac68b3d8b53a6d49cc421ccc0f08cb2c387bafb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f738964b7bb7ff28b78eac3d03b2ab1766f22b97")]
 [assembly: System.Reflection.AssemblyProductAttribute("Feriando.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Feriando.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

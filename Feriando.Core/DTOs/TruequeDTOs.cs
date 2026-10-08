@@ -28,6 +28,7 @@ public class TruequeResponse
 {
     public int TruequeID { get; set; }
     public string Estado { get; set; } = string.Empty;
+    public bool YaValore { get; set; }
 
     public int ProductoOfertadoID { get; set; }
     public string ProductoOfertadoNombre { get; set; } = string.Empty;

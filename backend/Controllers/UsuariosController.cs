@@ -97,6 +97,10 @@ public class UsuariosController : ControllerBase
         {
             return Conflict(new { mensaje = ex.Message });
         }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { mensaje = ex.Message });
+        }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error al actualizar perfil");

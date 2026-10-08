@@ -60,6 +60,22 @@ public class ProductosController : ControllerBase
     }
 
     [Authorize]
+    [HttpPut("{id:int}/estado")]
+    public async Task<IActionResult> CambiarEstado(int id, [FromBody] ProductoEstadoRequest request)
+    {
+        int usuarioID = User.GetUsuarioID();
+        var resultado = await _productoService.CambiarEstadoAsync(id, usuarioID, request.Estado);
+
+        return resultado switch
+        {
+            CambioEstadoProductoResultado.Actualizado => NoContent(),
+            CambioEstadoProductoResultado.NoEncontrado => NotFound(),
+            CambioEstadoProductoResultado.SinPermiso => Forbid(),
+            _ => Conflict(new { mensaje = "Solo puedes cambiar entre Disponible e Inactivo cuando el producto no está reservado ni intercambiado." })
+        };
+    }
+
+    [Authorize]
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> Eliminar(int id)
     {

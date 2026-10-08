@@ -17,10 +17,6 @@ El proyecto está dividido en 4 capas principales para garantizar modularidad y 
 
 ##  Requisitos
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5858326 (Fix conflicts and ensure README.md is in root)
 - **.NET 10 SDK** (o versión compatible)
 - **SQL Server** (Local, Express o Docker) con la base de datos `ElTruequeDB`
 - **Visual Studio 2026** o **VS Code** con C# Dev Kit
@@ -33,8 +29,11 @@ El proyecto está dividido en 4 capas principales para garantizar modularidad y 
 
    ```json
    "ConnectionStrings": {
-     "DefaultConnection": "Server=DESKTOP-K6NB7RO\\SQLEXPRESS;Database=ElTruequeDB;Trusted_Connection=True;TrustServerCertificate=True;"
+     "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=ElTruequeDB;Trusted_Connection=True;TrustServerCertificate=True;"
    }
+   ```
+
+   Para otro servidor, configura la variable de entorno `ConnectionStrings__DefaultConnection`; ASP.NET Core la usa para reemplazar este valor.
 
 # Restaurar dependencias
 dotnet restore

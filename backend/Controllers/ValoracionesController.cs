@@ -5,6 +5,7 @@ using ElTrueque.Api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace ElTrueque.Api.Controllers;
 
@@ -20,20 +21,25 @@ public class ValoracionesController : ControllerBase
         _db = db;
     }
 
-    // POST api/valoraciones  -> calificar a la otra persona luego de un trueque Completado
+    // POST api/valoraciones -> cada participante valora; la segunda valoración completa el trueque.
     [HttpPost]
     public async Task<IActionResult> Crear(ValoracionCreateRequest request)
     {
         int usuarioID = User.GetUsuarioID();
 
-        var trueque = await _db.Trueques.FirstOrDefaultAsync(t => t.TruequeID == request.TruequeID);
+        await using var transaction = await _db.Database.BeginTransactionAsync(IsolationLevel.Serializable);
+
+        var trueque = await _db.Trueques
+            .Include(t => t.ProductoOfertado)
+            .Include(t => t.ProductoSolicitado)
+            .FirstOrDefaultAsync(t => t.TruequeID == request.TruequeID);
         if (trueque is null) return NotFound(new { mensaje = "Trueque no encontrado." });
 
         bool participante = trueque.UsuarioSolicitanteID == usuarioID || trueque.UsuarioReceptorID == usuarioID;
         if (!participante) return Forbid();
 
-        if (trueque.Estado != "Completado" && trueque.Estado != "Aceptado")
-            return BadRequest(new { mensaje = "Solo puedes valorar un trueque aceptado o completado." });
+        if (trueque.Estado != "Aceptado")
+            return BadRequest(new { mensaje = "Solo puedes valorar un trueque aceptado que aún no haya sido completado." });
 
         int usuarioEvaluadoID = trueque.UsuarioSolicitanteID == usuarioID
             ? trueque.UsuarioReceptorID
@@ -53,11 +59,23 @@ public class ValoracionesController : ControllerBase
             FechaValoracion = DateTime.UtcNow
         });
 
-        // Si ambas partes ya valoraron, se marca el trueque como Completado
-        trueque.Estado = "Completado";
-        trueque.FechaCompletado ??= DateTime.UtcNow;
-
         await _db.SaveChangesAsync();
+
+        var cantidadValoraciones = await _db.Valoraciones
+            .CountAsync(v => v.TruequeID == request.TruequeID);
+
+        if (cantidadValoraciones >= 2)
+        {
+            trueque.Estado = "Completado";
+            trueque.FechaCompletado = DateTime.UtcNow;
+            trueque.ProductoOfertado!.Estado = "Intercambiado";
+            if (trueque.ProductoSolicitado is not null)
+                trueque.ProductoSolicitado.Estado = "Intercambiado";
+
+            await _db.SaveChangesAsync();
+        }
+
+        await transaction.CommitAsync();
         return Ok(new { mensaje = "Valoración registrada." });
     }
 

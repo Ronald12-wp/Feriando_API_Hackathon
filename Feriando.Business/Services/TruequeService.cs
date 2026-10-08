@@ -2,6 +2,7 @@ using ElTrueque.Api.Data;
 using ElTrueque.Api.DTOs;
 using ElTrueque.Api.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace ElTrueque.Api.Services;
 
@@ -25,6 +26,8 @@ public class TruequeService : ITruequeService
 
     public async Task<(bool, string, TruequeResponse?)> SolicitarAsync(int usuarioSolicitanteID, TruequeCreateRequest request)
     {
+        await using var transaction = await _db.Database.BeginTransactionAsync(IsolationLevel.Serializable);
+
         var productoOfertado = await _db.Productos
             .Include(p => p.Usuario)
             .FirstOrDefaultAsync(p => p.ProductoID == request.ProductoOfertadoID);
@@ -32,17 +35,17 @@ public class TruequeService : ITruequeService
         if (productoOfertado is null)
             return (false, "El producto ofertado no existe.", null);
 
-        if (productoOfertado.UsuarioID != usuarioSolicitanteID)
-            return (false, "Solo puedes ofrecer un producto que te pertenece.", null);
-
         if (productoOfertado.Estado != "Disponible")
-            return (false, "Tu producto ya no está disponible para trueque.", null);
+            return (false, "El producto ya no está disponible.", null);
 
         Producto? productoSolicitado = null;
         int usuarioReceptorID;
 
         if (request.ProductoSolicitadoID.HasValue)
         {
+            if (productoOfertado.UsuarioID != usuarioSolicitanteID)
+                return (false, "Solo puedes ofrecer un producto que te pertenece.", null);
+
             productoSolicitado = await _db.Productos
                 .FirstOrDefaultAsync(p => p.ProductoID == request.ProductoSolicitadoID.Value);
 
@@ -52,11 +55,20 @@ public class TruequeService : ITruequeService
             if (productoSolicitado.Estado != "Disponible")
                 return (false, "El producto solicitado ya no está disponible.", null);
 
+            if (productoSolicitado.UsuarioID == usuarioSolicitanteID)
+                return (false, "No puedes solicitar tu propio producto.", null);
+
             usuarioReceptorID = productoSolicitado.UsuarioID;
         }
         else
         {
-            // Venta directa: se solicita el producto ofertado a su propia dueña (compra)
+            // Compra directa: ProductoOfertadoID identifica aquí el producto de la vendedora.
+            if (productoOfertado.UsuarioID == usuarioSolicitanteID)
+                return (false, "No puedes comprar tu propio producto.", null);
+
+            if (productoOfertado.TipoOferta == "Trueque")
+                return (false, "Este producto no está publicado para venta directa.", null);
+
             usuarioReceptorID = productoOfertado.UsuarioID;
         }
 
@@ -78,6 +90,7 @@ public class TruequeService : ITruequeService
         if (productoSolicitado is not null) productoSolicitado.Estado = "Reservado";
 
         await _db.SaveChangesAsync();
+        await transaction.CommitAsync();
 
         await _notificaciones.NotificarAsync(
             usuarioReceptorID,
@@ -145,11 +158,14 @@ public class TruequeService : ITruequeService
             .Include(t => t.ProductoSolicitado)
             .Include(t => t.UsuarioSolicitante)
             .Include(t => t.UsuarioReceptor)
+            .Include(t => t.Valoraciones)
             .Where(t => t.UsuarioSolicitanteID == usuarioID || t.UsuarioReceptorID == usuarioID)
             .OrderByDescending(t => t.FechaSolicitud)
             .ToListAsync();
 
-        return trueques.Select(MapearRespuesta).ToList();
+        return trueques.Select(t => MapearRespuesta(
+            t,
+            t.Valoraciones.Any(v => v.UsuarioEvaluadorID == usuarioID))).ToList();
     }
 
     private async Task<TruequeResponse?> ObtenerRespuestaAsync(int truequeID)
@@ -164,10 +180,11 @@ public class TruequeService : ITruequeService
         return trueque is null ? null : MapearRespuesta(trueque);
     }
 
-    private static TruequeResponse MapearRespuesta(Trueque t) => new()
+    private static TruequeResponse MapearRespuesta(Trueque t, bool yaValore = false) => new()
     {
         TruequeID = t.TruequeID,
         Estado = t.Estado,
+        YaValore = yaValore,
         ProductoOfertadoID = t.ProductoOfertadoID,
         ProductoOfertadoNombre = t.ProductoOfertado?.Nombre ?? string.Empty,
         ProductoSolicitadoID = t.ProductoSolicitadoID,

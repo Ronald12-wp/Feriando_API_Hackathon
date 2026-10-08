@@ -32,16 +32,30 @@ public class AuthService : IAuthService
         bool telefonoExiste = await _db.Usuarios.AnyAsync(u => u.Telefono == request.Telefono);
         if (telefonoExiste) return null; // El controller decide qué error mostrar
 
+        if (string.IsNullOrWhiteSpace(request.Cedula))
+            throw new ArgumentException("La cédula es obligatoria");
+
+        string cedula = request.Cedula.Trim();
+        bool cedulaExiste = await _db.Usuarios.AnyAsync(u => u.Cedula == cedula);
+        if (cedulaExiste) throw new InvalidOperationException("La cédula ya está registrada");
+
+        bool ubicacionValida = await _db.Municipios.AnyAsync(m =>
+            m.MunicipioID == request.MunicipioID && m.DepartamentoID == request.DepartamentoID);
+        if (!ubicacionValida)
+            throw new ArgumentException("El municipio no pertenece al departamento seleccionado");
+
         var usuario = new Usuario
         {
             Nombres = request.Nombres,
             Apellidos = request.Apellidos,
             Telefono = request.Telefono,
+            Cedula = cedula,
             Correo = request.Correo,
             PasswordHash = Encoding.UTF8.GetBytes(BCrypt.Net.BCrypt.HashPassword(request.Password)),
             Genero = request.Genero,
             // --- CAMBIOS DE LOCALIZACIÓN ---
             MunicipioID = request.MunicipioID,
+            DepartamentoID = request.DepartamentoID,
             DireccionExacta = request.DireccionExacta,
             // -------------------------------
             IdiomaPreferidoID = request.IdiomaPreferidoID,
@@ -99,10 +113,12 @@ public class AuthService : IAuthService
                 Nombres = usuario.Nombres,
                 Apellidos = usuario.Apellidos,
                 Telefono = usuario.Telefono,
+                Cedula = usuario.Cedula,
                 Correo = usuario.Correo,
                 Genero = usuario.Genero,
                 // --- CAMBIOS DE LOCALIZACIÓN ---
                 MunicipioID = usuario.MunicipioID,
+                DepartamentoID = usuario.DepartamentoID,
                 Municipio = municipio?.Nombre,
                 Departamento = municipio?.Departamento?.Nombre,
                 DireccionExacta = usuario.DireccionExacta,

@@ -116,6 +116,17 @@ public class UsuarioService : IUsuarioService
             usuario.Telefono = request.Telefono;
         }
 
+        if (!string.IsNullOrWhiteSpace(request.Cedula))
+        {
+            string cedula = request.Cedula.Trim();
+            bool cedulaEnUso = await _db.Usuarios
+                .AnyAsync(u => u.Cedula == cedula && u.UsuarioID != usuarioID);
+            if (cedulaEnUso)
+                throw new InvalidOperationException("La cédula ya está registrada");
+
+            usuario.Cedula = cedula;
+        }
+
         if (!string.IsNullOrWhiteSpace(request.Correo))
             usuario.Correo = request.Correo;
 
@@ -124,6 +135,14 @@ public class UsuarioService : IUsuarioService
 
         if (request.MunicipioID.HasValue)
             usuario.MunicipioID = request.MunicipioID.Value;
+
+        if (request.DepartamentoID.HasValue)
+            usuario.DepartamentoID = request.DepartamentoID.Value;
+
+        bool ubicacionValida = await _db.Municipios.AnyAsync(m =>
+            m.MunicipioID == usuario.MunicipioID && m.DepartamentoID == usuario.DepartamentoID);
+        if (!ubicacionValida)
+            throw new ArgumentException("El municipio no pertenece al departamento seleccionado");
 
         if (!string.IsNullOrWhiteSpace(request.DireccionExacta))
             usuario.DireccionExacta = request.DireccionExacta;
@@ -174,9 +193,11 @@ public class UsuarioService : IUsuarioService
             Nombres = usuario.Nombres,
             Apellidos = usuario.Apellidos,
             Telefono = usuario.Telefono,
+            Cedula = usuario.Cedula,
             Correo = usuario.Correo,
             Genero = usuario.Genero,
             MunicipioID = usuario.MunicipioID,
+            DepartamentoID = usuario.DepartamentoID,
             Municipio = usuario.Municipio?.Nombre,
             Departamento = usuario.Municipio?.Departamento?.Nombre,
             DireccionExacta = usuario.DireccionExacta,

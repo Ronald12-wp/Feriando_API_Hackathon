@@ -15,6 +15,9 @@ public class RegistroRequest
     [Required, MaxLength(20)]
     public string Telefono { get; set; } = string.Empty;
 
+    [Required, MaxLength(20)]
+    public string Cedula { get; set; } = string.Empty;
+
     [MaxLength(150), EmailAddress]
     public string? Correo { get; set; }
 
@@ -26,6 +29,9 @@ public class RegistroRequest
     // --- CAMBIOS DE LOCALIZACIÓN ---
     [Required]
     public int MunicipioID { get; set; }
+
+    [Required]
+    public int DepartamentoID { get; set; }
 
     [Required, MaxLength(300)]
     public string DireccionExacta { get; set; } = string.Empty;
@@ -58,11 +64,13 @@ public class UsuarioResponse
     public string Nombres { get; set; } = string.Empty;
     public string Apellidos { get; set; } = string.Empty;
     public string Telefono { get; set; } = string.Empty;
+    public string? Cedula { get; set; }
     public string? Correo { get; set; }
     public string? Genero { get; set; }
 
     // --- CAMBIOS DE LOCALIZACIÓN ---
     public int? MunicipioID { get; set; }
+    public int DepartamentoID { get; set; }
     public string? Municipio { get; set; }
     public string? Departamento { get; set; }
     public string DireccionExacta { get; set; } = string.Empty;
@@ -88,6 +96,9 @@ public class ActualizarPerfilRequest
     [MaxLength(20)]
     public string? Telefono { get; set; }
 
+    [MaxLength(20)]
+    public string? Cedula { get; set; }
+
     [MaxLength(150), EmailAddress]
     public string? Correo { get; set; }
 
@@ -95,6 +106,8 @@ public class ActualizarPerfilRequest
     public string? Genero { get; set; }
 
     public int? MunicipioID { get; set; }
+
+    public int? DepartamentoID { get; set; }
 
     [MaxLength(300)]
     public string? DireccionExacta { get; set; }

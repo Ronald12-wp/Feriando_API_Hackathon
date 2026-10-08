@@ -48,6 +48,23 @@ namespace Feriando.DataAccess.Migrations
                     b.ToTable("Categorias");
                 });
 
+            modelBuilder.Entity("ElTrueque.Api.Models.ConversacionOculta", b =>
+                {
+                    b.Property<int>("UsuarioID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ChatId")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("FechaOcultacion")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("UsuarioID", "ChatId");
+
+                    b.ToTable("ConversacionesOcultas");
+                });
+
             modelBuilder.Entity("ElTrueque.Api.Models.Departamento", b =>
                 {
                     b.Property<int>("DepartamentoID")
@@ -125,7 +142,8 @@ namespace Feriando.DataAccess.Migrations
 
                     b.Property<string>("ChatId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("EmisorId")
                         .HasColumnType("int");
@@ -225,10 +243,6 @@ namespace Feriando.DataAccess.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("DireccionExacta")
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
                     b.Property<string>("Estado")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
@@ -238,9 +252,6 @@ namespace Feriando.DataAccess.Migrations
 
                     b.Property<DateTime>("FechaPublicacion")
                         .HasColumnType("datetime2");
-
-                    b.Property<int?>("MunicipioID")
-                        .HasColumnType("int");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -265,13 +276,14 @@ namespace Feriando.DataAccess.Migrations
 
                     b.HasIndex("CategoriaID");
 
-                    b.HasIndex("MunicipioID");
-
                     b.HasIndex("UnidadMedidaID");
 
                     b.HasIndex("UsuarioID");
 
-                    b.ToTable("Productos");
+                    b.ToTable("Productos", t =>
+                        {
+                            t.HasCheckConstraint("CK_Productos_Estado", "[Estado] IN (N'Disponible', N'Reservado', N'Intercambiado', N'Inactivo')");
+                        });
                 });
 
             modelBuilder.Entity("ElTrueque.Api.Models.Trueque", b =>
@@ -327,7 +339,10 @@ namespace Feriando.DataAccess.Migrations
 
                     b.HasIndex("UsuarioSolicitanteID");
 
-                    b.ToTable("Trueques");
+                    b.ToTable("Trueques", t =>
+                        {
+                            t.HasCheckConstraint("CK_Trueques_Estado", "[Estado] IN (N'Pendiente', N'Aceptado', N'Rechazado', N'Completado', N'Cancelado')");
+                        });
                 });
 
             modelBuilder.Entity("ElTrueque.Api.Models.UnidadMedida", b =>
@@ -365,9 +380,16 @@ namespace Feriando.DataAccess.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Cedula")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<string>("Correo")
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
+
+                    b.Property<int>("DepartamentoID")
+                        .HasColumnType("int");
 
                     b.Property<string>("DireccionExacta")
                         .IsRequired()
@@ -379,9 +401,6 @@ namespace Feriando.DataAccess.Migrations
 
                     b.Property<bool>("EstadoActivo")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime?>("FechaNacimiento")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("FechaRegistro")
                         .HasColumnType("datetime2");
@@ -416,9 +435,15 @@ namespace Feriando.DataAccess.Migrations
 
                     b.HasKey("UsuarioID");
 
+                    b.HasIndex("Cedula")
+                        .IsUnique()
+                        .HasFilter("[Cedula] IS NOT NULL");
+
                     b.HasIndex("Correo")
                         .IsUnique()
                         .HasFilter("[Correo] IS NOT NULL");
+
+                    b.HasIndex("DepartamentoID");
 
                     b.HasIndex("IdiomaPreferidoID");
 
@@ -459,13 +484,23 @@ namespace Feriando.DataAccess.Migrations
 
                     b.HasKey("ValoracionID");
 
-                    b.HasIndex("TruequeID");
-
                     b.HasIndex("UsuarioEvaluadoID");
 
                     b.HasIndex("UsuarioEvaluadorID");
 
+                    b.HasIndex("TruequeID", "UsuarioEvaluadorID")
+                        .IsUnique();
+
                     b.ToTable("Valoraciones");
+                });
+
+            modelBuilder.Entity("ElTrueque.Api.Models.ConversacionOculta", b =>
+                {
+                    b.HasOne("ElTrueque.Api.Models.Usuario", null)
+                        .WithMany()
+                        .HasForeignKey("UsuarioID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ElTrueque.Api.Models.ImagenProducto", b =>
@@ -515,11 +550,6 @@ namespace Feriando.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ElTrueque.Api.Models.Municipio", "Municipio")
-                        .WithMany()
-                        .HasForeignKey("MunicipioID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("ElTrueque.Api.Models.UnidadMedida", "UnidadMedida")
                         .WithMany()
                         .HasForeignKey("UnidadMedidaID")
@@ -533,8 +563,6 @@ namespace Feriando.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("Categoria");
-
-                    b.Navigation("Municipio");
 
                     b.Navigation("UnidadMedida");
 
@@ -577,6 +605,12 @@ namespace Feriando.DataAccess.Migrations
 
             modelBuilder.Entity("ElTrueque.Api.Models.Usuario", b =>
                 {
+                    b.HasOne("ElTrueque.Api.Models.Departamento", "Departamento")
+                        .WithMany()
+                        .HasForeignKey("DepartamentoID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("ElTrueque.Api.Models.Idioma", "IdiomaPreferido")
                         .WithMany()
                         .HasForeignKey("IdiomaPreferidoID");
@@ -586,6 +620,8 @@ namespace Feriando.DataAccess.Migrations
                         .HasForeignKey("MunicipioID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Departamento");
 
                     b.Navigation("IdiomaPreferido");
 

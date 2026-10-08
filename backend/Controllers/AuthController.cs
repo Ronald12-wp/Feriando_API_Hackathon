@@ -19,11 +19,22 @@ public class AuthController : ControllerBase
     [HttpPost("registro")]
     public async Task<ActionResult<AuthResponse>> Registro(RegistroRequest request)
     {
-        var resultado = await _authService.RegistrarAsync(request);
-        if (resultado is null)
-            return Conflict(new { mensaje = "Ya existe una cuenta registrada con este número de teléfono." });
+        try
+        {
+            var resultado = await _authService.RegistrarAsync(request);
+            if (resultado is null)
+                return Conflict(new { mensaje = "Ya existe una cuenta registrada con este número de teléfono." });
 
-        return Ok(resultado);
+            return Ok(resultado);
+        }
+        catch (InvalidOperationException ex)
+        {
+            return Conflict(new { mensaje = ex.Message });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { mensaje = ex.Message });
+        }
     }
 
     // POST api/auth/login
