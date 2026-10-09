@@ -112,7 +112,7 @@ Como plataforma se utiliza Microsoft Azure, con Azure Resource Group, Azure App 
 | Backend y API | Azure App Service | Publica la API por HTTPS sin administrar directamente el servidor. |
 | Base de datos | Azure SQL Database | Almacena la información relacional de Feriando. |
 | Aplicación móvil | APK de Android | Paquete instalable para dispositivos Android. |
-| Página de descarga | HTML, CSS y JavaScript, o un sitio existente | Presenta información y enlaza la descarga del APK. |
+| Página de descarga | HTML, CSS  o un sitio existente | Presenta información y enlaza la descarga del APK. |
 | Archivo descargable | Azure Blob Storage o alojamiento web | Guarda y entrega el APK. |
 | Código fuente | Git y GitHub | Permite controlar versiones y colaborar. |
 | Configuración sensible | App Service settings o Azure Key Vault | Mantiene secretos fuera del código fuente. |
