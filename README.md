@@ -99,3 +99,7 @@ El modelo se configura en `Feriando.DataAccess/Data/ElTruequeDbContext.cs`; all�
 ## Archivos cargados
 
 Las imágenes de productos se guardan y sirven desde `backend/wwwroot/uploads/productos/`. En despliegues, configura almacenamiento persistente y copias de seguridad apropiadas para estos archivos; los archivos locales de una ejecución de desarrollo no sustituyen una estrategia de almacenamiento para producción.
+
+## Implementación Despliegue con Azure 
+Como plataforma se utiliza Microsoft Azure, con Azure Resource Group, Azure App Service y Azure SQL Database. Si el proyecto utiliza otro motor de base de datos o un backend diferente, se deben adaptar los pasos.
+
